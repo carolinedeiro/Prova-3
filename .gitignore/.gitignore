@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 50
+#define QUANT 4
+
+
+
+ main() {
+ 	
+ 	typedef struct remedio {
+	 char nome[TAM];
+	 float preco;
+	 
+}remedio;  
+	int i;
+	float media;
+	int soma;
+	int aux;
+	remedio prod [QUANT]; 
+	
+	
+	soma = 0;
+	media = 0;
+	aux = 0;
+	
+	for( i=0; i<QUANT; i++){
+	
+	
+		printf( "Digite o nome do remedio: \n");
+		scanf( "%s", &prod [i].nome); 
+		
+		printf ("Digite o preco do remedio:\n");
+		scanf("%f", &prod [i].preco);
+		
+		soma = soma + prod [i].preco;
+	}
+	
+	media = soma/QUANT;
+	
+	for( i=0; i<QUANT; i++){
+		
+		if( prod [i].preco < media)
+			
+			prod [i].preco = prod [i].preco + ( (prod [i].preco *10)/100);
+		
+    } 	
+		
+		for( i=0; i<QUANT; i++ ) {
+			
+			if( prod [i].preco < prod [aux].preco )
+				aux = i;
+		
+	}
+	
+	printf( " O produto mais barato e: %s e seu valor e: %f", prod [aux].nome, prod [aux].preco );
+	
+	}
